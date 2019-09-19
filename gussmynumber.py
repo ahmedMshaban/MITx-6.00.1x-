@@ -26,5 +26,3 @@ while guessCheck != "c":
         print("Game over. Your secret number was: ", ans)
     else: 
         print("Sorry, I did not understand your input.")
-        
-
