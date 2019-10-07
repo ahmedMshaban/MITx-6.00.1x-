@@ -172,8 +172,17 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
+    localhand = hand.copy()
+    if word in wordList:
+        for letter in word:
+            if hand.get(letter, 0) == 0 or localhand[letter] <= 0:
+                return False
+            else:
+                localhand[letter] = localhand.get(letter) - 1
+        return True
+            
+    else:
+        return False
 
 #
 # Problem #4: Playing a hand
@@ -187,6 +196,11 @@ def calculateHandlen(hand):
     returns: integer
     """
     # TO DO... <-- Remove this comment when you code this function
+    result = 0
+    for letter in hand.keys():
+        for j in range(hand[letter]):
+                result += 1
+    return result
 
 
 
